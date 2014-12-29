@@ -15,6 +15,6 @@ public class Constants {
         port = 5222;
     }
     static {
-        host = "188.83.22.88";
+        host = "188.83.147.158";
     }
 }

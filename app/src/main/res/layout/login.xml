@@ -4,6 +4,13 @@ android:orientation="vertical" android:layout_width="fill_parent"
 android:layout_height="fill_parent">
 
 <TextView
+    android:layout_width="228dp"
+    android:layout_height="50dp"
+    android:textAlignment="center"
+    android:text="@string/loginform"
+    android:layout_gravity="center_horizontal" />
+
+<TextView
     android:layout_width="fill_parent"
     android:layout_height="30dp"
     android:text="@string/username"/>
