@@ -83,12 +83,12 @@ class DoLogin extends AsyncTask<String,Integer,Boolean> {
 
     protected ProgressDialog progressDialog;
 
+
     Context mContext;
     public DoLogin (Context context)
     {
         mContext =context;
     }
-
     @Override
     protected void onPreExecute()
     {
@@ -127,7 +127,7 @@ class DoLogin extends AsyncTask<String,Integer,Boolean> {
         progressDialog.dismiss();
         if (result != null  && result == Boolean.TRUE) {
             Toast.makeText(mContext, "Login succeed", Toast.LENGTH_SHORT).show();
-            mContext.startActivity(new Intent(mContext, Options.class));
+            mContext.startActivity(new Intent(mContext, route_activity.class));
         }else {
             Toast.makeText(mContext, "Login failed", Toast.LENGTH_SHORT).show();
         }

@@ -1,0 +1,183 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="isep.carshare.route_activity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/startPoint"
+        android:id="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"/>
+
+    <ImageView
+        android:id="@+id/getLocation1"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_location_found"
+        android:layout_alignTop="@+id/startPointEdit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startPointEdit"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/getLocation1"
+        android:layout_toStartOf="@+id/getLocation1"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/endPoint"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/startPointEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+
+    <ImageView
+        android:id="@+id/getLocation2"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_location_found"
+        android:layout_alignTop="@+id/endPointEdit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"/>
+
+    <EditText
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endPointEdit"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/getLocation1"
+        android:layout_toStartOf="@+id/getLocation1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/range"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/endPointEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="kms"
+        android:id="@+id/textView4"
+        android:layout_toRightOf="@+id/rangeEdit"
+        android:layout_alignBottom="@+id/rangeEdit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/rangeEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/passengertype"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/rangeEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView5">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioDriver"
+            android:id="@+id/radioButtonDriver"
+            android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioRider"
+            android:id="@+id/radioButtonRider"
+            android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+     </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/vehicle"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/radioGroupRoute"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerVehicle"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submitroute"
+        android:id="@+id/SubmitRouteButton"
+        android:layout_below="@+id/spinnerVehicle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+    />
+
+
+</RelativeLayout>

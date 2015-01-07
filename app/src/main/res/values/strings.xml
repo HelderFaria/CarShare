@@ -2,15 +2,21 @@
 <resources>
 
     <string name="app_name">CarShare</string>
-    <string name="login">Login</string>
-    <string name="loginform">Login Form</string>
+    <string name="login">Sign in</string>
     <string name="action_settings">Settings</string>
+    <string name="action_map">Routes</string>
+    <string name="action_car">Car</string>
     <string name="logout">Logout</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="title_activity_options">Options</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="radioRider">Search as a rider</string>
-    <string name="radioDriver">Search as a driver</string>
+    <string name="radioRider">Rider</string>
+    <string name="radioDriver">Driver</string>
+    <string name="title_activity_route_activity">Route</string>
+    <string name="startPoint">Start Location</string>
+    <string name="endPoint">End Location</string>
+    <string name="range">Range</string>
+    <string name="passengertype">Register in this route as a:</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="submitroute">Submit Route</string>
 
 </resources>

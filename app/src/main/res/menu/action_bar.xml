@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_map"
+        android:icon="@drawable/ic_action_map"
+        android:title="@string/action_map"
+        compat:showAsAction="always"/>
+
+    <item android:id="@+id/action_car"
+        android:icon="@drawable/ic_action_airplane_mode_on"
+        android:title="@string/action_car"
+        compat:showAsAction="always"/>
+
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/ic_action_settings"
+        android:title="@string/action_settings"
+        compat:showAsAction="always"/>
+
+</menu>
