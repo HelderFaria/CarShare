@@ -4,18 +4,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -43,14 +48,23 @@ public class route_activity extends ActionBarActivity {
     private RadioGroup radioGroupRoute;
     private RadioButton radioButton;
     private Spinner VehiclesSpinner;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route);
 
+        EditText editTextFromDate = (EditText) findViewById(R.id.editDate );
+        editTextFromDate.setInputType(InputType.TYPE_NULL);
+        setDate fromDate = new setDate(editTextFromDate, this);
+        EditText editTextFromTime = (EditText) findViewById(R.id.editTime );
+        editTextFromTime.setInputType(InputType.TYPE_NULL);
+        setTime fromTime = new setTime(editTextFromTime, this);
+
         radioGroupRoute = (RadioGroup) findViewById(R.id.radioGroupRoute);
         VehiclesSpinner = (Spinner) findViewById(R.id.spinnerVehicle);
+
 
         radioGroupRoute.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -58,16 +72,28 @@ public class route_activity extends ActionBarActivity {
 
                 // find which radio button is selected
                 if(checkedID == R.id.radioButtonDriver) {
+                    findViewById(R.id.textView3).setVisibility(View.VISIBLE);
+                    findViewById(R.id.rangeEdit).setVisibility(View.VISIBLE);
+                    findViewById(R.id.textView4).setVisibility(View.VISIBLE);
+                    findViewById(R.id.textView6).setVisibility(View.VISIBLE);
                     VehiclesSpinner.setVisibility(View.VISIBLE);
                 } else if(checkedID == R.id.radioButtonRider) {
+                    findViewById(R.id.textView3).setVisibility(View.GONE);
+                    findViewById(R.id.rangeEdit).setVisibility(View.GONE);
+                    findViewById(R.id.textView4).setVisibility(View.GONE);
+                    findViewById(R.id.textView6).setVisibility(View.GONE);
                     VehiclesSpinner.setVisibility(View.GONE);
                 } else {
+                    findViewById(R.id.textView3).setVisibility(View.GONE);
+                    findViewById(R.id.rangeEdit).setVisibility(View.GONE);
+                    findViewById(R.id.textView4).setVisibility(View.GONE);
+                    findViewById(R.id.textView6).setVisibility(View.GONE);
                     VehiclesSpinner.setVisibility(View.GONE);
                 }
             }
         });
         if (isNetworkAvailable()) {
-            GetVehicles GetVehicle = new GetVehicles(VehiclesSpinner);
+            GetVehicles GetVehicle = new GetVehicles(VehiclesSpinner, route_activity.this);
             GetVehicle.execute();
         }
         else {
@@ -107,76 +133,7 @@ public class route_activity extends ActionBarActivity {
     private void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
 }
 
 
-class GetVehicles extends AsyncTask<String, Integer, JSONArray> {
-
-    private Spinner VehiclesSpinner;
-    public GetVehicles (Spinner spinner)
-    {
-        VehiclesSpinner =spinner;
-    }
-
-    @Override
-    protected JSONArray doInBackground(String... params) {
-        JSONObject jObject = new JSONObject();
-        JSONArray jArray = new JSONArray();
-        StringBuilder builder = new StringBuilder();
-        HttpClient client = new DefaultHttpClient();
-        HttpGet httpGet = new HttpGet(Constants.VehicleURI + Constants.ownerQuery + "raul");
-        try {
-            HttpResponse response = client.execute(httpGet);
-            StatusLine statusLine = response.getStatusLine();
-            if (statusLine.getStatusCode() == 200) {
-                HttpEntity entity = response.getEntity();
-                InputStream content = entity.getContent();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(content));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    builder.append(line);
-                }
-            } else {
-                Log.i("log_tag", "No OK status received");
-            }
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            jObject = new JSONObject(builder.toString());
-            jArray = jObject.getJSONArray("list");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jArray;
-    };
-
-    @Override
-    protected void onPostExecute(JSONArray result) {
-        List<String> spinnerArray =  new ArrayList<String>();
-        super.onPostExecute(result);
-        try {
-            for(int i=0; i<result.length(); i++){
-                JSONObject vehicle = result.getJSONObject(i);
-                spinnerArray.add(vehicle.getString("brand") + " " + vehicle.getString("model"));
-                Log.i("log_tag", spinnerArray.toString());
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-//        Log.i("log_tag","passei aqui");
-
-        //        if (result != null  && result == Boolean.TRUE) {
-//            Toast.makeText(mContext, "Login succeed", Toast.LENGTH_SHORT).show();
-//            mContext.startActivity(new Intent(mContext, route_activity.class));
-//        }else {
-//            Toast.makeText(mContext, "Login failed", Toast.LENGTH_SHORT).show();
-//        }
-
-    }
-}

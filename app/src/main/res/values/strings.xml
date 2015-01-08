@@ -14,9 +14,11 @@
     <string name="title_activity_route_activity">Route</string>
     <string name="startPoint">Start Location</string>
     <string name="endPoint">End Location</string>
-    <string name="range">Range</string>
+    <string name="range">Distance Range</string>
+    <string name="timeRange">Delta</string>
     <string name="passengertype">Register in this route as a:</string>
     <string name="vehicle">Vehicle</string>
     <string name="submitroute">Submit Route</string>
-
+    <string name="Time">Hours</string>
+    <string name="Date">Date</string>
 </resources>

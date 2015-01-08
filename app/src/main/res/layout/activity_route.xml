@@ -20,7 +20,6 @@
 
     <ImageView
         android:id="@+id/getLocation1"
-        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_location_found"
@@ -53,7 +52,6 @@
 
     <ImageView
         android:id="@+id/getLocation2"
-        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_location_found"
@@ -70,44 +68,105 @@
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/getLocation1"
-        android:layout_toStartOf="@+id/getLocation1" />
+        android:layout_toLeftOf="@+id/getLocation2"
+        android:layout_toStartOf="@+id/getLocation2"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/range"
-        android:id="@+id/textView3"
+        android:text="@string/Date"
+        android:id="@+id/textView9"
         android:layout_below="@+id/endPointEdit"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/editTime"
+        android:layout_alignParentBottom="false"
+
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Time"
+        android:id="@+id/textView10"
+        android:layout_above="@+id/editTime"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editDate"
+        android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_toStartOf="@+id/textView10"
+        android:layout_alignRight="@+id/textView9"
+        android:layout_alignEnd="@+id/textView9"
+        android:textAlignment="center" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTime"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignTop="@+id/editDate"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_alignRight="@+id/textView10"
+        android:layout_alignEnd="@+id/textView10"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/timeRange"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_toRightOf="@+id/textView10"
+
+        android:layout_alignRight="@+id/endPointEdit"
+        android:layout_alignEnd="@+id/endPointEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/timerangeEdit"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_toStartOf="@+id/getLocation2"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7"
+        android:textAlignment="textEnd" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="kms"
-        android:id="@+id/textView4"
-        android:layout_toRightOf="@+id/rangeEdit"
-        android:layout_alignBottom="@+id/rangeEdit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:text="min"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/textView5"
+        android:layout_toRightOf="@+id/timerangeEdit"
+        android:layout_toEndOf="@+id/timerangeEdit" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/rangeEdit"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,7 +174,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/passengertype"
         android:id="@+id/textView5"
-        android:layout_below="@+id/rangeEdit"
+        android:layout_below="@+id/timerangeEdit"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
@@ -133,6 +192,7 @@
             android:text="@string/radioDriver"
             android:id="@+id/radioButtonDriver"
             android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+            android:paddingLeft="@dimen/abc_action_bar_default_padding_material"
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <RadioButton
@@ -141,9 +201,51 @@
             android:text="@string/radioRider"
             android:id="@+id/radioButtonRider"
             android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="@dimen/abc_action_bar_default_padding_material"
+             />
 
-     </RadioGroup>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/range"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/radioGroupRoute"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:visibility="gone"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/rangeEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="kms"
+        android:id="@+id/textView4"
+        android:layout_toRightOf="@+id/rangeEdit"
+        android:layout_alignBottom="@+id/rangeEdit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -151,10 +253,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/vehicle"
         android:id="@+id/textView6"
-        android:layout_below="@+id/radioGroupRoute"
+        android:layout_below="@+id/rangeEdit"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material" />
+        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
+        android:visibility="gone"/>
 
     <Spinner
         android:layout_width="wrap_content"
@@ -178,6 +281,7 @@
         android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
         android:textAppearance="?android:attr/textAppearanceSmall"
     />
+
 
 
 </RelativeLayout>

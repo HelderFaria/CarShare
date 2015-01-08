@@ -49,7 +49,7 @@ public class Login extends Activity {
 
                     Boolean res = Boolean.FALSE;
 
-                    DoLogin login = new DoLogin(Login.this);
+                    DoXMPPLogin login = new DoXMPPLogin(Login.this);
                     login.execute(username, password);
 
                 }
@@ -74,64 +74,4 @@ public class Login extends Activity {
 
 
 
-
-class DoLogin extends AsyncTask<String,Integer,Boolean> {
-    private ConnectionConfiguration config = new ConnectionConfiguration(Constants.host, Constants.port, Constants.service);
-    private XMPPConnection connection;
-    String user ;
-    String pass;
-
-    protected ProgressDialog progressDialog;
-
-
-    Context mContext;
-    public DoLogin (Context context)
-    {
-        mContext =context;
-    }
-    @Override
-    protected void onPreExecute()
-    {
-        super.onPreExecute();
-        Log.d("Login", "PreExecute");
-        progressDialog = ProgressDialog.show(mContext, "Login in", "Login in", true, false);
-    }
-
-    @Override
-    protected Boolean doInBackground(String... params) {
-        user = params[0];
-        pass= params[1];
-
-        config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
-        //XMPPConnection
-        connection = new XMPPTCPConnection(config);
-        try {
-            try {
-                connection.connect();
-                connection.login(user, pass);
-            } catch (SmackException.ConnectionException ExpConn) {
-                ExpConn.printStackTrace();
-                return Boolean.FALSE;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Boolean.FALSE;
-        }
-
-        return Boolean.TRUE;
-    }
-
-    @Override
-    protected void onPostExecute(Boolean result) {
-        super.onPostExecute(result);
-        progressDialog.dismiss();
-        if (result != null  && result == Boolean.TRUE) {
-            Toast.makeText(mContext, "Login succeed", Toast.LENGTH_SHORT).show();
-            mContext.startActivity(new Intent(mContext, route_activity.class));
-        }else {
-            Toast.makeText(mContext, "Login failed", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-}
 
